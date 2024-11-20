@@ -1,0 +1,44 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "arpa"
+version = "0.0.1"
+description = "A Python package for ARPA: Analytical Recursive Pairwise Aggregation"
+authors = []
+packages = [
+  { include = "ivs" }
+]
+
+[tool.poetry.dev-dependencies]
+black = "^23.9.1"
+flake8 = "^6.1.0"
+pytest = "^7.4.2"
+pyright = "^1.1.331"
+
+[tool.poetry.dependencies]
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+
+[tool.pyright]
+reportMissingParameterType = true
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+
+[tool.pylint."messages control"]
+disable = "all"
+enable = ["empty-docstring", "missing-module-docstring", "missing-class-docstring", "missing-function-docstring"]
+ignore = ["setup.py", "__init__.py"]
+ignore-paths = ["tests"]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]

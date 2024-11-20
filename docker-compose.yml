@@ -1,0 +1,14 @@
+services:
+  fs-ivs:
+    image: fs-arpa:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./costs:/app/costs
+      - ./databases:/app/databases
+      - ./cache:/app/cache
